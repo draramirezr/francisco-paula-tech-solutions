@@ -3,7 +3,7 @@
 import { Button } from "@/components/ui/Button";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { contactServices } from "@/data/content";
-import { getWhatsAppUrl, siteConfig } from "@/lib/utils";
+import { siteConfig } from "@/lib/utils";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 import { motion } from "framer-motion";
 import { Mail, MapPin, Phone, Send } from "lucide-react";
@@ -12,30 +12,46 @@ import { FormEvent, useState } from "react";
 export function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setError(null);
 
     const formData = new FormData(e.currentTarget);
     const data = Object.fromEntries(formData.entries());
 
-    window.open(
-      getWhatsAppUrl(
-        `*Nueva solicitud de cotización*\n\n` +
-          `Nombre: ${data.name}\n` +
-          `Correo: ${data.email}\n` +
-          `Teléfono: ${data.phone}\n` +
-          `Empresa: ${data.company}\n` +
-          `Servicio: ${data.service}\n` +
-          `Mensaje: ${data.message}`
-      ),
-      "_blank"
-    );
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: data.name,
+          email: data.email,
+          phone: data.phone || "",
+          company: data.company || "",
+          service: data.service,
+          message: data.message,
+        }),
+      });
 
-    setIsSubmitting(false);
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 5000);
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error ?? "No se pudo enviar el mensaje.");
+      }
+
+      e.currentTarget.reset();
+      setSubmitted(true);
+      setTimeout(() => setSubmitted(false), 5000);
+    } catch (err) {
+      setError(
+        err instanceof Error ? err.message : "Error al enviar. Usa WhatsApp."
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -229,7 +245,12 @@ export function Contact() {
               </div>
             </div>
 
-            <div className="mt-6">
+            <div className="mt-6 space-y-3">
+              {error && (
+                <p className="text-sm text-red-600 dark:text-red-400" role="alert">
+                  {error}
+                </p>
+              )}
               <Button
                 type="submit"
                 size="lg"
