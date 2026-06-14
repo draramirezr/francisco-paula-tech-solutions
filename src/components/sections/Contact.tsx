@@ -3,9 +3,9 @@
 import { Button } from "@/components/ui/Button";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { contactServices } from "@/data/content";
-import { siteConfig } from "@/lib/utils";
+import { getWhatsAppUrl, siteConfig } from "@/lib/utils";
 import { motion } from "framer-motion";
-import { Mail, MapPin, Phone, Send } from "lucide-react";
+import { Mail, MapPin, MessageCircle, Phone, Send } from "lucide-react";
 import { FormEvent, useState } from "react";
 
 export function Contact() {
@@ -19,18 +19,16 @@ export function Contact() {
     const formData = new FormData(e.currentTarget);
     const data = Object.fromEntries(formData.entries());
 
-    const message = encodeURIComponent(
-      `*Nueva solicitud de cotización*\n\n` +
-        `Nombre: ${data.name}\n` +
-        `Correo: ${data.email}\n` +
-        `Teléfono: ${data.phone}\n` +
-        `Empresa: ${data.company}\n` +
-        `Servicio: ${data.service}\n` +
-        `Mensaje: ${data.message}`
-    );
-
     window.open(
-      `https://wa.me/${siteConfig.whatsapp}?text=${message}`,
+      getWhatsAppUrl(
+        `*Nueva solicitud de cotización*\n\n` +
+          `Nombre: ${data.name}\n` +
+          `Correo: ${data.email}\n` +
+          `Teléfono: ${data.phone}\n` +
+          `Empresa: ${data.company}\n` +
+          `Servicio: ${data.service}\n` +
+          `Mensaje: ${data.message}`
+      ),
       "_blank"
     );
 
@@ -42,7 +40,7 @@ export function Contact() {
   return (
     <section id="contacto" className="section-padding bg-gray-50/50 dark:bg-primary/30">
       <div className="container-custom">
-        <SectionHeading title="Hablemos de tu próximo proyecto" />
+        <SectionHeading title="Agenda tu consulta gratuita" />
 
         <div className="grid gap-12 lg:grid-cols-5">
           {/* Contact info */}
@@ -53,8 +51,8 @@ export function Contact() {
             className="lg:col-span-2"
           >
             <p className="text-lg text-text-secondary dark:text-text-dark-secondary">
-              ¿Tienes un proyecto en mente? Completa el formulario y me pondré
-              en contacto contigo lo antes posible.
+              Cuéntame sobre tu proyecto y recibe una propuesta personalizada.
+              Respuesta garantizada en menos de 24 horas.
             </p>
 
             <div className="mt-8 space-y-6">
@@ -84,7 +82,26 @@ export function Contact() {
                     Teléfono
                   </p>
                   <a
-                    href={`tel:${siteConfig.phone}`}
+                    href={`tel:${siteConfig.phoneTel}`}
+                    className="font-medium text-primary hover:text-secondary dark:text-white dark:hover:text-accent"
+                  >
+                    {siteConfig.phone}
+                  </a>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-4">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#25D366]/10">
+                  <MessageCircle className="h-5 w-5 text-[#25D366]" />
+                </div>
+                <div>
+                  <p className="text-sm text-text-secondary dark:text-text-dark-secondary">
+                    WhatsApp
+                  </p>
+                  <a
+                    href={getWhatsAppUrl("Hola, me interesa agendar una consulta")}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="font-medium text-primary hover:text-secondary dark:text-white dark:hover:text-accent"
                   >
                     {siteConfig.phone}
@@ -234,7 +251,7 @@ export function Contact() {
                   "¡Mensaje enviado!"
                 ) : (
                   <>
-                    Solicitar Cotización
+                    Agendar consulta gratuita
                     <Send className="h-4 w-4" />
                   </>
                 )}

@@ -44,7 +44,6 @@ export const services: Service[] = [
       "Catálogos digitales de productos y servicios",
       "Formularios inteligentes y automatizados",
       "Integración con WhatsApp y redes sociales",
-      "Chatbots para atención al cliente",
       "Portafolios profesionales",
     ],
   },

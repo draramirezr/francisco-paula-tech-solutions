@@ -7,17 +7,20 @@ import { siteConfig } from "@/lib/utils";
 import { motion } from "framer-motion";
 import {
   Award,
+  BookOpen,
   Building2,
   GraduationCap,
   Linkedin,
-  MapPin,
 } from "lucide-react";
 
 const highlights = [
-  { icon: Building2, text: "Gerente de Inteligencia de Datos — Banco Vimenca" },
+  {
+    icon: Building2,
+    text: "Gerente de Inteligencia de Negocios — Sector financiero",
+  },
   { icon: Award, text: "19+ años de experiencia" },
-  { icon: MapPin, text: "Santo Domingo, RD" },
-  { icon: GraduationCap, text: "Maestría en Datos y Big Data" },
+  { icon: GraduationCap, text: "Ingeniero en Sistema y Computación" },
+  { icon: BookOpen, text: "Maestría en Ciencias de Datos" },
 ];
 
 export function About() {

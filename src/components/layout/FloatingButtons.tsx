@@ -1,12 +1,12 @@
 "use client";
 
-import { siteConfig } from "@/lib/utils";
+import { getWhatsAppUrl, siteConfig } from "@/lib/utils";
 import { motion } from "framer-motion";
 import { Linkedin, Mail, MessageCircle } from "lucide-react";
 
 const floatingButtons = [
   {
-    href: `https://wa.me/${siteConfig.whatsapp}?text=Hola,%20me%20interesa%20solicitar%20una%20cotización`,
+    href: getWhatsAppUrl("Hola, me interesa solicitar una cotización"),
     icon: MessageCircle,
     label: "WhatsApp",
     color: "bg-[#25D366] hover:bg-[#20BD5A]",
@@ -27,7 +27,7 @@ const floatingButtons = [
 
 export function FloatingButtons() {
   return (
-    <div className="fixed bottom-6 right-6 z-40 flex flex-col gap-3">
+    <div className="fixed bottom-20 right-6 z-40 flex flex-col gap-3 md:bottom-6">
       {floatingButtons.map((button, index) => {
         const Icon = button.icon;
         return (

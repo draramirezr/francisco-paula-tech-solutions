@@ -1,8 +1,8 @@
 "use client";
 
 import { services } from "@/data/services";
-import { navLinks, siteConfig } from "@/lib/utils";
-import { Linkedin, Mail, MapPin, Phone, Zap } from "lucide-react";
+import { getWhatsAppUrl, navLinks, siteConfig } from "@/lib/utils";
+import { Linkedin, Mail, MapPin, MessageCircle, Phone, Zap } from "lucide-react";
 import Link from "next/link";
 
 export function Footer() {
@@ -18,9 +18,9 @@ export function Footer() {
                 <Zap className="h-5 w-5 text-white" />
               </div>
               <div>
-                <span className="block text-sm font-bold">Francisco Paula</span>
+                <span className="block text-sm font-bold">{siteConfig.brandName}</span>
                 <span className="block text-xs text-gray-400">
-                  Technology Solutions
+                  {siteConfig.brandTagline}
                 </span>
               </div>
             </Link>
@@ -83,16 +83,36 @@ export function Footer() {
               </li>
               <li>
                 <a
-                  href={`tel:${siteConfig.phone}`}
+                  href={`tel:${siteConfig.phoneTel}`}
                   className="flex items-center gap-2 text-sm text-gray-400 transition-colors hover:text-white"
                 >
                   <Phone className="h-4 w-4 shrink-0 text-accent" />
                   {siteConfig.phone}
                 </a>
               </li>
+              <li>
+                <a
+                  href={getWhatsAppUrl("Hola, me interesa solicitar una cotización")}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-sm text-gray-400 transition-colors hover:text-white"
+                >
+                  <MessageCircle className="h-4 w-4 shrink-0 text-accent" />
+                  WhatsApp
+                </a>
+              </li>
             </ul>
 
             <div className="mt-6 flex gap-3">
+              <a
+                href={getWhatsAppUrl("Hola, me interesa solicitar una cotización")}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="WhatsApp"
+                className="flex h-10 w-10 items-center justify-center rounded-lg bg-white/10 text-gray-400 transition-colors hover:bg-[#25D366] hover:text-white"
+              >
+                <MessageCircle className="h-5 w-5" />
+              </a>
               <a
                 href={siteConfig.linkedin}
                 target="_blank"

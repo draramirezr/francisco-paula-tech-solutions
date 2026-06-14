@@ -1,8 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/Button";
-import { navLinks } from "@/lib/utils";
-import { cn } from "@/lib/utils";
+import { cn, navLinks, siteConfig } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, Moon, Sun, X, Zap } from "lucide-react";
 import { useTheme } from "next-themes";
@@ -40,10 +39,10 @@ export function Header() {
           </div>
           <div className="hidden sm:block">
             <span className="text-sm font-bold text-primary dark:text-white lg:text-base">
-              Francisco Paula
+              {siteConfig.brandName}
             </span>
             <span className="block text-[10px] text-text-secondary dark:text-text-dark-secondary">
-              Technology Solutions
+              {siteConfig.brandTagline}
             </span>
           </div>
         </Link>
@@ -76,7 +75,7 @@ export function Header() {
           )}
 
           <Link href="#contacto" className="hidden sm:block">
-            <Button size="sm">Solicitar Cotización</Button>
+            <Button size="sm">Agendar consulta</Button>
           </Link>
 
           <button
@@ -113,7 +112,7 @@ export function Header() {
                 </Link>
               ))}
               <Link href="#contacto" onClick={() => setIsMobileMenuOpen(false)}>
-                <Button className="mt-2 w-full">Solicitar Cotización</Button>
+                <Button className="mt-2 w-full">Agendar consulta</Button>
               </Link>
             </nav>
           </motion.div>

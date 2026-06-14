@@ -1,6 +1,7 @@
 import { FloatingButtons } from "@/components/layout/FloatingButtons";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
+import { StickyCTA } from "@/components/layout/StickyCTA";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import { siteConfig } from "@/lib/utils";
 import type { Metadata } from "next";
@@ -21,7 +22,7 @@ export const metadata: Metadata = {
   description: siteConfig.description,
   keywords: [
     "Francisco Paula",
-    "Technology Solutions",
+    "Data & Technology Solutions",
     "Inteligencia de Negocios",
     "Análisis de Datos",
     "Automatización",
@@ -65,9 +66,10 @@ export default function RootLayout({
       <body className={`${inter.variable} font-sans antialiased`}>
         <ThemeProvider>
           <Header />
-          <main>{children}</main>
+          <main className="pb-20 md:pb-0">{children}</main>
           <Footer />
           <FloatingButtons />
+          <StickyCTA />
         </ThemeProvider>
       </body>
     </html>

@@ -1,5 +1,6 @@
 "use client";
 
+import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import {
@@ -9,7 +10,8 @@ import {
   type ProjectFilter,
 } from "@/data/services";
 import { cn } from "@/lib/utils";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 import { useState } from "react";
 
 export function Projects() {
@@ -17,18 +19,17 @@ export function Projects() {
 
   const filteredProjects =
     activeFilter === "todos"
-      ? projects
+      ? projects.slice(0, 4)
       : projects.filter((p) => p.category === activeFilter);
 
   return (
-    <section id="proyectos" className="section-padding bg-gray-50/50 dark:bg-primary/30">
+    <section id="casos" className="section-padding">
       <div className="container-custom">
         <SectionHeading
-          title="Portafolio de Proyectos"
-          subtitle="Casos de éxito que demuestran resultados tangibles"
+          title="Casos de éxito"
+          subtitle="Proyectos reales con impacto en productividad, decisiones y crecimiento"
         />
 
-        {/* Filters */}
         <div className="mb-10 flex flex-wrap justify-center gap-2">
           {projectCategories.map((category) => (
             <button
@@ -46,54 +47,55 @@ export function Projects() {
           ))}
         </div>
 
-        {/* Projects grid */}
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <div className="grid gap-6 sm:grid-cols-2">
           {filteredProjects.map((project, index) => {
             const Icon = project.icon;
             return (
-              <Card key={project.id} delay={index * 0.05} className="group relative overflow-hidden">
-                <div className="absolute -right-4 -top-4 h-24 w-24 rounded-full bg-gradient-to-br from-secondary/10 to-accent/10 transition-transform group-hover:scale-150" />
-
-                <div className="relative">
-                  <div className="mb-4 flex items-center justify-between">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-secondary to-accent text-white">
-                      <Icon className="h-6 w-6" />
-                    </div>
+              <Card key={project.id} delay={index * 0.05} className="group">
+                <div className="flex items-start gap-4">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-secondary to-accent text-white">
+                    <Icon className="h-6 w-6" />
+                  </div>
+                  <div className="flex-1">
                     <span className="rounded-full bg-secondary/10 px-3 py-1 text-xs font-medium text-secondary dark:bg-accent/10 dark:text-accent">
                       {categoryLabels[project.category]}
                     </span>
-                  </div>
-
-                  <h3 className="text-lg font-bold text-primary dark:text-white">
-                    {project.title}
-                  </h3>
-
-                  <div className="mt-3 flex flex-wrap gap-1.5">
-                    {project.technologies.map((tech) => (
-                      <span
-                        key={tech}
-                        className="rounded-md bg-gray-100 px-2 py-0.5 text-xs font-medium text-text-secondary dark:bg-primary/60 dark:text-text-dark-secondary"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-
-                  <p className="mt-4 text-sm text-text-secondary dark:text-text-dark-secondary">
-                    <span className="font-semibold text-emerald-600 dark:text-emerald-400">
-                      Resultado:
-                    </span>{" "}
-                    {project.result}
-                  </p>
-
-                  <div className="mt-4 flex items-center gap-1 text-sm font-medium text-secondary opacity-0 transition-opacity group-hover:opacity-100 dark:text-accent">
-                    Ver detalles
-                    <ArrowUpRight className="h-4 w-4" />
+                    <h3 className="mt-2 text-lg font-bold text-primary dark:text-white">
+                      {project.title}
+                    </h3>
+                    <div className="mt-2 flex flex-wrap gap-1.5">
+                      {project.technologies.map((tech) => (
+                        <span
+                          key={tech}
+                          className="rounded-md bg-gray-100 px-2 py-0.5 text-xs font-medium text-text-secondary dark:bg-primary/60 dark:text-text-dark-secondary"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                    <p className="mt-3 text-sm text-text-secondary dark:text-text-dark-secondary">
+                      <span className="font-semibold text-emerald-600 dark:text-emerald-400">
+                        Resultado:
+                      </span>{" "}
+                      {project.result}
+                    </p>
                   </div>
                 </div>
               </Card>
             );
           })}
+        </div>
+
+        <div className="mt-10 text-center">
+          <p className="mb-4 text-text-secondary dark:text-text-dark-secondary">
+            ¿Quieres resultados similares en tu negocio?
+          </p>
+          <Link href="#contacto">
+            <Button size="lg">
+              Solicitar cotización
+              <ArrowRight className="h-4 w-4" />
+            </Button>
+          </Link>
         </div>
       </div>
     </section>
