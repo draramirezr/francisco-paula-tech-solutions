@@ -1,5 +1,6 @@
 "use client";
 
+import { SectionWhatsApp } from "@/components/ui/WhatsAppButton";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { faqItems } from "@/data/content";
 import { cn } from "@/lib/utils";
@@ -56,6 +57,11 @@ export function FAQ() {
             );
           })}
         </div>
+
+        <SectionWhatsApp
+          message="Hola, tengo una pregunta sobre un proyecto"
+          label="Escríbeme por WhatsApp"
+        />
       </div>
     </section>
   );

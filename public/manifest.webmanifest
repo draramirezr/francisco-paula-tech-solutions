@@ -1,0 +1,18 @@
+{
+  "name": "Francisco Paula Data & Technology Solutions",
+  "short_name": "Francisco Paula",
+  "description": "Tecnología, webs y sistemas para médicos, clínicas y consultorios en República Dominicana.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FFFFFF",
+  "theme_color": "#2563EB",
+  "lang": "es-DO",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

@@ -1,5 +1,6 @@
 "use client";
 
+import { SectionWhatsApp } from "@/components/ui/WhatsAppButton";
 import { Card } from "@/components/ui/Card";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { services } from "@/data/services";
@@ -19,7 +20,7 @@ export function Services() {
       <div className="container-custom">
         <SectionHeading
           title="Servicios"
-          subtitle="Soluciones tecnológicas integrales para impulsar tu negocio"
+          subtitle="Analítica de datos, BI, automatización y desarrollo web — para empresas y el sector salud"
         />
 
         <div className="grid gap-6 md:grid-cols-2">
@@ -61,6 +62,11 @@ export function Services() {
             );
           })}
         </div>
+
+        <SectionWhatsApp
+          message="Hola, me interesa conocer sus servicios"
+          label="Consultar servicios por WhatsApp"
+        />
       </div>
     </section>
   );

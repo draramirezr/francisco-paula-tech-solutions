@@ -48,18 +48,18 @@ export const processSteps = [
 ];
 
 export const contactServices = [
-  "Automatización Inteligente de Procesos",
+  "Sector Salud — Web y Sistemas para consultorios",
   "Desarrollo Web",
   "Desarrollo de Soluciones Empresariales",
   "Inteligencia de Negocios y Analítica Avanzada",
-  "Sector Salud — Web y Sistemas",
+  "Automatización Inteligente de Procesos",
   "Consultoría Tecnológica",
   "Otro",
 ];
 
 export const trustSectors = [
-  "Sector bancario",
   "Sector salud",
+  "Sector bancario",
   "Comercial",
   "Servicios",
 ];
@@ -87,21 +87,27 @@ export interface WhyChooseItem {
 
 export const whyChooseItems: WhyChooseItem[] = [
   {
-    title: "19+ años en entornos corporativos",
+    title: "Especialista en sector salud",
     description:
-      "Experiencia en organizaciones exigentes donde la precisión, el cumplimiento y la calidad son críticos.",
-    icon: Building2,
+      "Webs profesionales, facturación ARS, turnos, WhatsApp y sistemas para médicos, clínicas y consultorios.",
+    icon: HeartPulse,
   },
   {
-    title: "Experiencia en sector bancario e Inteligencia de Negocios",
+    title: "Analista de datos senior",
     description:
-      "Liderazgo en proyectos de BI, reportes regulatorios, dashboards ejecutivos y automatización de datos.",
+      "Business Intelligence, Power BI, SQL Server, dashboards ejecutivos, reportes automatizados y analítica avanzada.",
     icon: BarChart3,
   },
   {
-    title: "Enfoque en resultados de negocio",
+    title: "19+ años en entornos corporativos",
     description:
-      "No solo desarrollo tecnología: resuelvo problemas reales que ahorran tiempo, reducen errores y generan ingresos.",
+      "Experiencia en sector financiero y organizaciones exigentes donde la precisión y el cumplimiento son críticos.",
+    icon: Building2,
+  },
+  {
+    title: "Enfoque en resultados",
+    description:
+      "Más pacientes y mejor operación para clínicas; menos tareas manuales y decisiones basadas en datos para empresas.",
     icon: TrendingUp,
   },
   {
@@ -109,12 +115,6 @@ export const whyChooseItems: WhyChooseItem[] = [
     description:
       "Datos, automatización, desarrollo web y sistemas empresariales en un solo consultor senior.",
     icon: Layers,
-  },
-  {
-    title: "Especialista en sector salud",
-    description:
-      "Webs profesionales, facturación ARS, turnos y sistemas para médicos y clínicas.",
-    icon: HeartPulse,
   },
   {
     title: "Comunicación clara y acompañamiento",
@@ -148,20 +148,20 @@ export interface Testimonial {
 
 export const testimonials: Testimonial[] = [
   {
-    id: "1",
-    name: "María Rodríguez",
-    role: "Directora de Operaciones",
-    company: "Finanzas Plus RD",
-    comment:
-      "Francisco transformó nuestros procesos de reportes. Lo que antes tomaba días, ahora se genera automáticamente. Su profesionalismo y dominio técnico son excepcionales.",
-  },
-  {
     id: "2",
     name: "Ana Lucía Pérez",
     role: "Gerente General",
     company: "Consultorio Médico Salud Integral",
     comment:
       "Nuestra landing page superó todas las expectativas. Los contactos y reservas aumentaron significativamente desde el primer mes de lanzamiento.",
+  },
+  {
+    id: "1",
+    name: "María Rodríguez",
+    role: "Directora de Operaciones",
+    company: "Finanzas Plus RD",
+    comment:
+      "Francisco transformó nuestros procesos de reportes. Lo que antes tomaba días, ahora se genera automáticamente. Su profesionalismo y dominio técnico son excepcionales.",
   },
   {
     id: "3",
@@ -180,14 +180,14 @@ export interface FAQItem {
 
 export const faqItems: FAQItem[] = [
   {
-    question: "¿Trabajas con empresas y profesionales independientes?",
+    question: "¿Trabajas específicamente con médicos y clínicas?",
     answer:
-      "Sí. Atiendo empresas, clínicas, consultorios médicos, instituciones financieras y emprendedores que necesitan soluciones tecnológicas profesionales.",
+      "Sí, el sector salud es mi enfoque principal. Desarrollo webs para consultorios, sistemas de turnos, integración con WhatsApp, facturación ARS y soluciones de datos para clínicas y profesionales médicos.",
   },
   {
-    question: "¿Cuánto tarda un proyecto?",
+    question: "¿Cuánto tarda una web para mi consultorio?",
     answer:
-      "Depende del alcance. Una landing page puede estar lista en 1–2 semanas. Dashboards, sistemas y automatizaciones requieren más tiempo según la complejidad.",
+      "Una landing page profesional puede estar lista en 1–2 semanas. Sistemas con turnos, facturación o integraciones requieren más tiempo según el alcance.",
   },
   {
     question: "¿Ofreces soporte después de la entrega?",
@@ -195,9 +195,9 @@ export const faqItems: FAQItem[] = [
       "Sí. Todos los proyectos incluyen acompañamiento post-implementación para garantizar que la solución funcione correctamente.",
   },
   {
-    question: "¿Puedo contratar solo un dashboard o solo una web?",
+    question: "¿Puedo contratar solo la web o también dashboards y sistemas?",
     answer:
-      "Sí. Puedes contratar servicios de forma individual o solicitar una solución integral adaptada a tu negocio.",
+      "Sí. Puedes contratar servicios de forma individual — solo web, solo BI — o una solución integral para tu consulta o clínica.",
   },
   {
     question: "¿Cómo es el proceso de pago?",
@@ -207,12 +207,12 @@ export const faqItems: FAQItem[] = [
   {
     question: "¿Atiendes fuera de República Dominicana?",
     answer:
-      "Sí, trabajo de forma remota con clientes en República Dominicana y el exterior.",
+      "Sí, trabajo de forma remota con médicos y clínicas en República Dominicana y el exterior.",
   },
 ];
 
 export const heroTrustBullets = [
-  "Gerente de Inteligencia de Negocios en el sector bancario",
-  "Power BI · SQL Server · Python · React · Next.js",
-  "Especialista en soluciones para médicos, clínicas y empresas",
+  "Analista de datos senior — Power BI · SQL Server · Python · BI",
+  "Nicho principal: webs, turnos y sistemas para médicos y clínicas",
+  "19+ años en sector financiero, salud y empresas",
 ];

@@ -1,5 +1,6 @@
 "use client";
 
+import { SectionWhatsApp } from "@/components/ui/WhatsAppButton";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -13,7 +14,7 @@ export function WhyChoose() {
       <div className="container-custom">
         <SectionHeading
           title="Un consultor tecnológico senior"
-          subtitle="Por qué empresas y profesionales eligen trabajar conmigo"
+          subtitle="Analista de datos senior con enfoque en salud — y experiencia para empresas que exigen resultados"
         />
 
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -35,13 +36,18 @@ export function WhyChoose() {
           })}
         </div>
 
-        <div className="mt-10 text-center">
-          <Link href="#contacto">
+        <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+          <Link href="#salud">
             <Button size="lg">
-              Solicitar propuesta personalizada
+              Ver soluciones para consultorios
               <ArrowRight className="h-4 w-4" />
             </Button>
           </Link>
+          <SectionWhatsApp
+            className="mt-0"
+            message="Hola, me interesa trabajar contigo"
+            label="Escríbeme por WhatsApp"
+          />
         </div>
       </div>
     </section>

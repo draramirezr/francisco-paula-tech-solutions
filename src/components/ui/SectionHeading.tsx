@@ -28,7 +28,7 @@ export function SectionHeading({
         className
       )}
     >
-      <h2 className="text-3xl font-bold tracking-tight text-primary dark:text-white sm:text-4xl lg:text-5xl">
+      <h2 className="text-balance text-2xl font-bold tracking-tight text-primary dark:text-white sm:text-3xl md:text-4xl lg:text-5xl">
         {title.includes("?") ? (
           <>
             {title.split("?")[0]}
@@ -39,7 +39,7 @@ export function SectionHeading({
         )}
       </h2>
       {subtitle && (
-        <p className="mx-auto mt-4 max-w-2xl text-lg text-text-secondary dark:text-text-dark-secondary">
+        <p className="mx-auto mt-3 max-w-2xl text-base text-text-secondary dark:text-text-dark-secondary sm:mt-4 sm:text-lg">
           {subtitle}
         </p>
       )}

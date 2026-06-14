@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/Button";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { getWhatsAppUrl } from "@/lib/utils";
+import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 import { motion } from "framer-motion";
 import {
   ArrowRight,
@@ -53,8 +53,8 @@ export function HealthSector() {
 
       <div className="container-custom relative">
         <SectionHeading
-          title="Experiencia en el Sector Salud"
-          subtitle="Soluciones tecnológicas diseñadas para médicos, clínicas y profesionales de la salud"
+          title="Mi especialidad: Sector Salud"
+          subtitle="Webs, sistemas y automatización diseñados para médicos, clínicas y consultorios"
         />
 
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
@@ -70,7 +70,8 @@ export function HealthSector() {
             </div>
 
             <p className="text-lg leading-relaxed text-text-secondary dark:text-text-dark-secondary">
-              Cuento con gran experiencia en el{" "}
+              Como analista de datos senior, aplico la misma rigurosidad de BI y
+              analítica al{" "}
               <strong className="text-primary dark:text-white">
                 sector de la salud
               </strong>
@@ -89,25 +90,20 @@ export function HealthSector() {
               la comunicación con tu consulta.
             </p>
 
-            <div className="mt-8 flex flex-wrap gap-4">
-              <Link href="#contacto">
-                <Button size="lg">
+            <div className="mt-6 flex w-full flex-col gap-3 sm:mt-8 sm:flex-row sm:flex-wrap sm:gap-4">
+              <Link href="#contacto" className="w-full sm:w-auto">
+                <Button size="lg" className="w-full sm:w-auto">
                   Quiero mi web para consultorio
                   <ArrowRight className="h-4 w-4" />
                 </Button>
               </Link>
-              <a
-                href={getWhatsAppUrl(
-                  "Hola, soy médico y me interesa una página web profesional"
-                )}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Button variant="outline" size="lg">
-                  <MessageCircle className="h-4 w-4" />
-                  WhatsApp
-                </Button>
-              </a>
+              <WhatsAppButton
+                className="w-full sm:w-auto"
+                fullWidth
+                message="Hola, soy médico y me interesa una página web profesional"
+                label="Escríbeme por WhatsApp"
+                variant="outline"
+              />
             </div>
           </motion.div>
 

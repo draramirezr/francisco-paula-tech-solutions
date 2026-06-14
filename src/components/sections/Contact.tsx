@@ -4,8 +4,9 @@ import { Button } from "@/components/ui/Button";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { contactServices } from "@/data/content";
 import { getWhatsAppUrl, siteConfig } from "@/lib/utils";
+import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 import { motion } from "framer-motion";
-import { Mail, MapPin, MessageCircle, Phone, Send } from "lucide-react";
+import { Mail, MapPin, Phone, Send } from "lucide-react";
 import { FormEvent, useState } from "react";
 
 export function Contact() {
@@ -91,25 +92,6 @@ export function Contact() {
               </div>
 
               <div className="flex items-center gap-4">
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#25D366]/10">
-                  <MessageCircle className="h-5 w-5 text-[#25D366]" />
-                </div>
-                <div>
-                  <p className="text-sm text-text-secondary dark:text-text-dark-secondary">
-                    WhatsApp
-                  </p>
-                  <a
-                    href={getWhatsAppUrl("Hola, me interesa agendar una consulta")}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-medium text-primary hover:text-secondary dark:text-white dark:hover:text-accent"
-                  >
-                    {siteConfig.phone}
-                  </a>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-4">
                 <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-secondary/10 dark:bg-accent/10">
                   <MapPin className="h-5 w-5 text-secondary dark:text-accent" />
                 </div>
@@ -123,6 +105,13 @@ export function Contact() {
                 </div>
               </div>
             </div>
+
+            <WhatsAppButton
+              className="mt-8 w-full sm:w-auto"
+              fullWidth
+              message="Hola, me interesa agendar una consulta"
+              label="Escríbeme por WhatsApp"
+            />
           </motion.div>
 
           {/* Form */}

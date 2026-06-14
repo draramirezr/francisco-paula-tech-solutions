@@ -5,14 +5,32 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
+    -webkit-text-size-adjust: 100%;
   }
 
   body {
     @apply bg-surface text-text-primary antialiased transition-colors duration-300;
+    overflow-x: hidden;
+    min-height: 100dvh;
   }
 
   .dark body {
     @apply bg-surface-dark text-text-dark;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
   }
 }
 
@@ -22,7 +40,7 @@
   }
 
   .container-custom {
-    @apply mx-auto max-w-7xl;
+    @apply mx-auto w-full max-w-7xl;
   }
 
   .gradient-text {

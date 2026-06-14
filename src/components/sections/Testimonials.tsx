@@ -11,7 +11,7 @@ export function Testimonials() {
       <div className="container-custom">
         <SectionHeading
           title="Lo que dicen quienes confiaron en mis servicios"
-          subtitle="Testimonios de clientes y profesionales que han trabajado conmigo"
+          subtitle="Incluyendo médicos, clínicas y empresas que han confiado en mis soluciones"
         />
 
         <div className="grid gap-6 md:grid-cols-3">

@@ -1,24 +1,28 @@
 "use client";
 
+import { SectionWhatsApp } from "@/components/ui/WhatsAppButton";
 import { Button } from "@/components/ui/Button";
 import { ProfileAvatar } from "@/components/ui/TechIllustration";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { siteConfig } from "@/lib/utils";
 import { motion } from "framer-motion";
 import {
-  Award,
+  BarChart3,
   BookOpen,
-  Building2,
   GraduationCap,
+  HeartPulse,
   Linkedin,
 } from "lucide-react";
 
 const highlights = [
   {
-    icon: Building2,
-    text: "Gerente de Inteligencia de Negocios — Sector financiero",
+    icon: HeartPulse,
+    text: "Especialista en tecnología para el sector salud",
   },
-  { icon: Award, text: "19+ años de experiencia" },
+  {
+    icon: BarChart3,
+    text: "Analista de datos senior — BI, Power BI y analítica",
+  },
   { icon: GraduationCap, text: "Ingeniero en Sistema y Computación" },
   { icon: BookOpen, text: "Maestría en Ciencias de Datos" },
 ];
@@ -37,7 +41,7 @@ export function About() {
             transition={{ duration: 0.5 }}
             className="relative flex w-full"
           >
-            <ProfileAvatar className="h-full w-full min-h-[28rem] sm:min-h-[32rem] lg:min-h-full" />
+            <ProfileAvatar className="h-full w-full min-h-[20rem] sm:min-h-[28rem] lg:min-h-full" />
           </motion.div>
 
           <motion.div
@@ -51,37 +55,42 @@ export function About() {
               <strong className="text-primary dark:text-white">
                 Francisco Paula González
               </strong>
-              , especialista en Inteligencia de Negocios, Analítica de Datos,
-              Automatización y Desarrollo Tecnológico, con más de{" "}
+              ,{" "}
               <strong className="text-primary dark:text-white">
-                19 años de experiencia
+                analista de datos senior
               </strong>{" "}
-              creando soluciones que impulsan la eficiencia y el crecimiento
-              empresarial.
+              y consultor tecnológico. Llevo más de{" "}
+              <strong className="text-primary dark:text-white">
+                19 años
+              </strong>{" "}
+              transformando datos en decisiones estratégicas con Power BI, SQL
+              Server, Python y Business Intelligence en entornos corporativos y
+              financieros.
             </p>
 
             <p className="mt-4 text-lg leading-relaxed text-text-secondary dark:text-text-dark-secondary">
-              Ayudo a empresas y emprendedores a automatizar procesos,
-              desarrollar sistemas, construir dashboards estratégicos y
-              convertir grandes volúmenes de datos en información útil para la
-              toma de decisiones.
+              Mi{" "}
+              <strong className="text-primary dark:text-white">
+                nicho principal es el sector salud
+              </strong>
+              : ayudo a médicos y clínicas con webs profesionales, sistemas de
+              turnos, facturación ARS, WhatsApp y dashboards que mejoran la
+              operación del consultorio.
             </p>
 
             <p className="mt-4 text-lg leading-relaxed text-text-secondary dark:text-text-dark-secondary">
-              Mi experiencia abarca sectores financieros, comerciales, de
-              servicios y de salud, donde he liderado proyectos de Business
-              Intelligence, integración de datos, desarrollo web y optimización
-              de procesos, logrando soluciones escalables y orientadas a
-              resultados.
+              Combino experiencia profunda en analítica de datos con desarrollo
+              web y automatización, para ofrecer soluciones completas tanto a
+              profesionales de la salud como a empresas que necesitan reportes,
+              dashboards y sistemas confiables.
             </p>
 
             <p className="mt-4 text-lg leading-relaxed text-text-secondary dark:text-text-dark-secondary">
-              Si buscas transformar información en ventajas competitivas,
-              reducir tareas manuales y tomar decisiones respaldadas por datos,
-              puedo ayudarte a hacerlo realidad.
+              Si buscas un consultor que domine datos y tecnología — ya sea para
+              tu consultorio o tu empresa — puedo ayudarte a hacerlo realidad.
             </p>
 
-            <div className="mt-6">
+            <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center">
               <a
                 href={siteConfig.linkedin}
                 target="_blank"
@@ -92,6 +101,11 @@ export function About() {
                   Ver perfil en LinkedIn
                 </Button>
               </a>
+              <SectionWhatsApp
+                className="mt-0 justify-start"
+                message="Hola, leí sobre usted y me interesa una consulta"
+                label="Escríbeme por WhatsApp"
+              />
             </div>
 
             <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2">
